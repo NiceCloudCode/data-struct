@@ -1,7 +1,7 @@
-package com.michealkz;
+package com.michealkz.doublelist;
 
 public interface List<E> {
-	int ELEMENT_NOT_FOUND = -1;
+	static final int ELEMENT_NOT_FOUND = -1;
 	/**
 	 * 清除所有元素
 	 */

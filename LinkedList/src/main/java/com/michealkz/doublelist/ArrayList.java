@@ -1,4 +1,4 @@
-package com.michealkz;
+package com.michealkz.doublelist;
 
 @SuppressWarnings("unchecked")
 public class ArrayList<E> extends AbstractList<E> {

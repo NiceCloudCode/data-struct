@@ -1,4 +1,4 @@
-package com.michealkz;
+package com.michealkz.doublelist;
 
 public abstract class AbstractList<E> implements List<E>  {
 	/**

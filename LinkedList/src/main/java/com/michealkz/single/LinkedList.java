@@ -1,4 +1,4 @@
-package com.michealkz;
+package com.michealkz.single;
 
 public class LinkedList<E> extends AbstractList<E> {
 	private Node<E> first;

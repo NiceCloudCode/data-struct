@@ -1,4 +1,4 @@
-package com.michealkz;
+package com.michealkz.single;
 
 
 public class Main {
