@@ -1,6 +1,7 @@
 package com.michealkz.single;
 
 
+import com.michealkz.circle.DoubleCircleLinkedList;
 import com.michealkz.circle.SingleCircleLinkedList;
 
 public class Main {
@@ -24,8 +25,9 @@ public class Main {
 		Asserts.test(list.contains(33));
 		Asserts.test(list.get(0) == 11);
 		Asserts.test(list.get(1) == 66);
-		Asserts.test(list.get(list.size() - 1) == 44);
-		
+		Asserts.test(list.get(2) == 33);
+		Asserts.test(list.get(3) == 44);
+		System.out.println(list.size());
 		System.out.println(list);
 	}
 	
@@ -48,7 +50,7 @@ public class Main {
 	public static void main(String[] args) {
 
 //		testList(new ArrayList<>());
-		testList(new SingleCircleLinkedList<Integer>());
+		testList(new DoubleCircleLinkedList<Integer>());
 		
 		
 		// testList(new SingleCircleLinkedList<>());
