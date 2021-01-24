@@ -13,6 +13,7 @@
         <module>leetcode</module>
         <module>LinkedList</module>
         <module>Practice</module>
+        <module>Stack</module>
     </modules>
 
 
