@@ -1,6 +1,5 @@
 package com.michealkz.doublelist;
 
-import com.mj.circle.CircleLinkedList;
 
 public class Main {
 	
@@ -28,25 +27,10 @@ public class Main {
 		System.out.println(list);
 	}
 	
-	static void josephus() {
-		CircleLinkedList<Integer> list = new CircleLinkedList<>();
-		for (int i = 1; i <= 8; i++) {
-			list.add(i);
-		}
-		
-		// 指向头结点（指向1）
-		list.reset();
-		
-		while (!list.isEmpty()) {
-			list.next();
-			list.next();
-			System.out.println(list.remove());
-		}
-	}
+
 
 	public static void main(String[] args) {
-		josephus();
-		
+
 //		testList(new ArrayList<>());
 //		testList(new LinkedList<>());
 		
