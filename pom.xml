@@ -9,11 +9,12 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-        <module>01-复杂度</module>
         <module>leetcode</module>
         <module>LinkedList</module>
         <module>Practice</module>
         <module>Stack</module>
+        <module>queue</module>
+        <module>tree</module>
     </modules>
 
 
