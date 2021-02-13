@@ -7,15 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="leetcode" />
-        <module name="Practice" />
-        <module name="Stack" />
-        <module name="tree" />
         <module name="queue" />
+        <module name="Stack" />
+        <module name="01-复杂度" />
+        <module name="tree" />
         <module name="LinkedList" />
+        <module name="Practice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="01-复杂度" target="1.5" />
       <module name="03LinkedList" target="1.5" />
     </bytecodeTargetLevel>
   </component>
