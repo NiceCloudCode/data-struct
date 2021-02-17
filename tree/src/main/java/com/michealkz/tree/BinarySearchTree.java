@@ -3,6 +3,8 @@ package com.michealkz.tree;
 import com.michealkz.printer.BinaryTreeInfo;
 
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 二叉搜索树继承自BinaryTreeInfo 实现其中的方法以便进行打印
@@ -84,10 +86,82 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
         }
     }
 
+    // 二叉树的前序遍历操作
+    public void preorderTraversal() {
+        preorderTraversal(root);
+    }
+
+    // 二叉树的前序遍历传入根节点进行遍历操作
+    private void preorderTraversal(Node<E> node) {
+        if (node == null) return;
+        System.out.print(node.element + "\t");
+        preorderTraversal(node.left);
+        preorderTraversal(node.right);
+    }
+
+    // 二叉树中序遍历
+    public void middleOrderTraversal() {
+        middleOrderTraversal(root);
+    }
+
+    // 二叉树中序遍历实现逻辑
+    private void middleOrderTraversal(Node<E> node) {
+        if (node == null) return;
+        middleOrderTraversal(node.left);
+        System.out.print(node.element + "\t");
+        middleOrderTraversal(node.right);
+    }
+
+    // 二叉树后序遍历
+    public void postOrderTraversal() {
+        postOrderTraversal(root);
+    }
+
+    // 二叉树后序遍历实现
+    private void postOrderTraversal(Node<E> node) {
+        if (node == null) return;
+        postOrderTraversal(node.left);
+        postOrderTraversal(node.right);
+        System.out.print(node.element + "\t");
+    }
+
+    // 二叉树层序遍历
+    public void levelOrderTraversal() {
+        levelOrderTraversal(root);
+    }
+
+    // 二叉树层序遍历实现逻辑
+
+    /**
+     * 二叉树层序遍历很重要
+     * 遍历思路：
+     *  - 1.定义队列存放节点
+     *  - 2.首先将根节点入队列
+     *  - 3.如果队列不为空，那么将队列顶部元素出队
+     *  - 4.输出根节点的值
+     *  - 5.判断根节点左右节点是否为空，如果不为空，那么将左右节点入队列，只要队列不为空就一直执行while循环
+     * @param root
+     */
+    private void levelOrderTraversal(Node<E> root) {
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node<E> node = queue.poll();
+            System.out.print(node.element + "\t");
+
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+
+    }
 
     /**
      * 下面是打印需要重写的四个方法
-     * <p>
      * 根节点
      */
     @Override
@@ -130,7 +204,7 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
     /**
      * 二叉树的 Node节点 对象
      */
-    private static class Node<E> {
+    public static class Node<E> {
         E element;
         Node<E> left;
         Node<E> right;

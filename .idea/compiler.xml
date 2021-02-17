@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="leetcode" />
-        <module name="queue" />
-        <module name="Stack" />
-        <module name="01-复杂度" />
-        <module name="tree" />
         <module name="LinkedList" />
         <module name="Practice" />
+        <module name="01-复杂度" />
+        <module name="Stack" />
+        <module name="queue" />
+        <module name="tree" />
+        <module name="leetcode" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

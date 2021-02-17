@@ -9,7 +9,27 @@ import java.util.Comparator;
 public class Main {
 
     public static void main(String[] args) {
-        testUDBeanCompare();
+        testTraversal();
+    }
+
+    // 二叉树的遍历操作
+    public static void testTraversal() {
+        Integer data[] = new Integer[]{
+                7, 4, 9, 2, 5, 8, 11, 3, 12, 1
+        };
+
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        for (int i = 0; i < data.length; i++) {
+            bst.add(data[i]);
+        }
+
+        BinaryTrees.println(bst);
+        System.out.println("***********");
+        System.out.println();
+        // bst.middleOrderTraversal(); //  中序遍历的结果就是排好序的二叉搜索树
+        // bst.postOrderTraversal();   // 后序遍历
+        // bst.preorderTraversal();    // 前序遍历
+        bst.levelOrderTraversal();  // 层序遍历
     }
 
 
