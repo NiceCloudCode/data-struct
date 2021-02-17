@@ -135,11 +135,12 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
     /**
      * 二叉树层序遍历很重要
      * 遍历思路：
-     *  - 1.定义队列存放节点
-     *  - 2.首先将根节点入队列
-     *  - 3.如果队列不为空，那么将队列顶部元素出队
-     *  - 4.输出根节点的值
-     *  - 5.判断根节点左右节点是否为空，如果不为空，那么将左右节点入队列，只要队列不为空就一直执行while循环
+     * - 1.定义队列存放节点
+     * - 2.首先将根节点入队列
+     * - 3.如果队列不为空，那么将队列顶部元素出队
+     * - 4.输出根节点的值
+     * - 5.判断根节点左右节点是否为空，如果不为空，那么将左右节点入队列，只要队列不为空就一直执行while循环
+     *
      * @param root
      */
     private void levelOrderTraversal(Node<E> root) {
@@ -158,6 +159,77 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
             }
         }
 
+    }
+
+    /**
+     * 计算二叉树的高度
+     * 思路： 借用层序遍历的方式计算二叉树的高度
+     */
+    public int height() {
+        if (root == null) return 0;
+
+        int height = 0;
+        // 记录每一层的元素数量
+        int levelSize = 1;
+        Queue<Node<E>> queue = new LinkedList<>();
+
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node<E> node = queue.poll();
+            levelSize--;
+
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+
+
+            if (levelSize == 0) {// 意味着即将访问下一层
+                levelSize = queue.size();// 设置新的leveleSize为队列的长度
+                height++;// 高度自增 1
+            }
+        }
+        return height;
+    }
+
+    /**
+     * 判断是否是完全二叉树
+     * -  如果树为空，返回false
+     * -  如果 node.left !=null && node.right !=null ,将node.left  node.right 顺序入队
+     * -  如果node.left =null && node.right == null ，返回 false
+     * -  如果node.left !=null && node.right==null, 或者node.left ==null && node.right==null,那么后面遍历的节点都应该为叶子节点，才是完全二叉树
+     * -  否则返回 Flase
+     * -  遍历结束
+     */
+    public boolean isCompleteBinarySearchTree() {
+        if (root == null) return false;
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.offer(root);
+        // 是否为叶子节点
+        boolean leaf = false;
+
+        //
+        while (!queue.isEmpty()) {
+            Node<E> node = queue.poll();
+            // 如果该叶子节点本身自己判断不是叶子节点的话，说明这个不是连续的叶子节点，故不是完全二叉树，需要返回false
+            if (leaf && !node.isLeaf()) return false;
+
+            if (node.left != null) {
+                queue.offer(node.left);
+            } else if (node.right != null) {// node.left == null && node.right != null
+                return false;
+            }
+
+            if (node.right != null) {
+                queue.offer(node.right);
+            } else {// node.right == null
+                leaf = true;
+            }
+        }
+        return true;
     }
 
     /**

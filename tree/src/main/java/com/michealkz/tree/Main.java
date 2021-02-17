@@ -30,6 +30,9 @@ public class Main {
         // bst.postOrderTraversal();   // 后序遍历
         // bst.preorderTraversal();    // 前序遍历
         bst.levelOrderTraversal();  // 层序遍历
+
+        System.out.println();
+        System.out.println("height is : "+bst.height());
     }
 
 
