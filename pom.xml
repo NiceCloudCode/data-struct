@@ -15,6 +15,7 @@
         <module>Stack</module>
         <module>queue</module>
         <module>tree</module>
+        <module>AVL-TREE</module>
     </modules>
 
 
